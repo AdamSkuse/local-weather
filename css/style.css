@@ -1,5 +1,22 @@
-.weather-icon {
-    font-size: 160px;
-    padding: 60px;
+body {
+    padding-top: 100px;
 }
+
+div {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.weather-icon {
+    font-size: 50vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.info-panel {
+    font-family: arial, sans-serif;
 
