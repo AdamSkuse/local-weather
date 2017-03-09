@@ -1,8 +1,3 @@
-
-if (!navigator.geolocation) {
-    console.log("Geolocation not supported");        
-}
-
 navigator.geolocation.getCurrentPosition(function(position) {
     getCoords(position.coords.latitude, position.coords.longitude);
 });
@@ -39,6 +34,10 @@ function displayWeatherIcon(id) {
     } else if (id > 899 && id < 907) {
         iconCode = "wi-tornado";
     }
-    console.log(iconCode);
+var weatherIcon = document.getElementById("weatherIcon");
+var i = document.createElement("i");
+i.classList.add("wi");
+i.classList.add(iconCode);
+weatherIcon.appendChild(i);
 }
 
