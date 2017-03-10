@@ -69,7 +69,8 @@ var i = document.createElement("i");
 i.classList.add("wi");
 i.classList.add(iconCode);
 weatherIcon.appendChild(i);
-document.body.style.background = 'url(images/'+ backgroundImage + ') no-repeat center center'
+var htmlElement = document.querySelector("html");
+htmlElement.style.backgroundImage = 'url(images/'+ backgroundImage + ')';
 var weatherDescriptionDiv = document.getElementById("weatherDescription");
 weatherDescriptionDiv.style.color = textColor; 
 }
