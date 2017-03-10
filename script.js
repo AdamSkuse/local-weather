@@ -1,3 +1,7 @@
+var tempC = "";
+var tempF = "";
+var tempToggle = 1;
+
 navigator.geolocation.getCurrentPosition(function(position) {
     getCoords(position.coords.latitude, position.coords.longitude);
 });
@@ -21,7 +25,9 @@ function displayWeatherIcon(id, description, temperature) {
 
     var temperatureDiv= document.getElementById("temperature");
     var temperatureP= document.createElement("p");
-    temperatureP.innerHTML = (temperature -273.15).toFixed(1) + "&deg;C";
+    tempC = (temperature -273.15).toFixed(1) + "&deg;C";
+    tempF = (temperature * (9 / 5) - 459.67).toFixed(1) + "&deg;F";
+    temperatureP.innerHTML = tempC;
     temperatureDiv.appendChild(temperatureP);
 
     var iconCode = "";
@@ -74,4 +80,19 @@ htmlElement.style.backgroundImage = 'url(images/'+ backgroundImage + ')';
 var weatherDescriptionDiv = document.getElementById("weatherDescription");
 weatherDescriptionDiv.style.color = textColor; 
 }
+
+$('#temp-toggle').click(function() {
+    var temperatureDiv= document.getElementById("temperature");
+    temperatureDiv.removeChild(temperatureDiv.childNodes[0]);
+    var temperatureP= document.createElement("p");
+    if (tempToggle === 0) {
+        temperatureP.innerHTML = tempC;
+        tempToggle = 1;
+    } else {
+        temperatureP.innerHTML = tempF
+        tempToggle = 0;
+    }
+    temperatureDiv.appendChild(temperatureP);
+});
+
 
